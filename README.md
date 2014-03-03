@@ -15,7 +15,7 @@ Functionality
 ###Business Board
 - Enter the business home page (using dummy login), and see listing of ads by issue, unpaid, and company
 - Edit company info by going to company profiles and then clicking on the company’s name
-
+- View all of company’s history when go to profile page
 
 
 
