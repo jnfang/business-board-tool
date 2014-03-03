@@ -1,6 +1,6 @@
 Business Board tool
 ======
-jQuery plugin for client-slide image cropping using HTML5 Canvas
+web application to help business board members and advertisers keep a history of advertising interactions
 
 
 Functionality
