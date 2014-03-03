@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+ <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+  <body class="container">
+    <hr>
+    <h1>Contact Info</h1>
+    <form action="/contact" method="post">
+    <div><label>Company</label><input value="{{ company }}" name="company"></div>
+    <div><label>Name</label><input value="{{ name }}" name="name"></div>
+    <div><label>Position</label><input value="{{ position }}" name="position"></div>
+    <div><label>Phone Number</label><input value="{{ phonenumber }}" name="phonenumber"></div>
+    <div><label>Email</label><input value="{{ email }}" name="email"></div>
+    <div><label>Address</label><input value="{{ address }}" name="address"></div>
+      <div><input class="btn btn-default" type="submit" value="Submit"></div>
+    </form>
+
+    <hr>
+
+    <a type="button" class="btn btn-default" href="/main">Back</a>
+
+
+  </body>
+</html>
+{% endautoescape %}
