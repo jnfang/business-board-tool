@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+ <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/staff.js"></script>
+  </head>
+  <body class="container">
+  <h1>Lampoon Staff Page</h1>
+  <ul class="breadcrumb" style="padding-top:15px; padding-bottom:15px; text-align:center;">
+    <li><a href="#1">Issue 1 </a> <span class="divider">|</span></li>
+    <li><a href="#2">Issue 2 </a> <span class="divider">|</span></li>
+    <li><a href="#3">Issue 3 </a> <span class="divider">|</span></li>
+    <li><a href="#4">Issue 4 </a> <span class="divider">|</span></li>
+    <li><a href="#5">Issue 5 </a> <span class="divider">|</span></li>
+    <li><a href="#unpaid">Unpaid</a> <span class="divider">|</span></li>
+    <li><a href="#companies">Company Profiles </a> <span class="divider">|</span></li> 
+  </ul> 
+  <div id="everything">
+  {% for ads in all_ads %}
+    <div id="{{loop.index}}-page" class="page">
+    <h2>Issue # {{loop.index}}</h2>
+      {% for ad in ads %}
+      <div>
+      <label>Date ordered: {{ad.date.strftime('%m/%d/%Y - %H:%M')}}</label>
+        <div><label>Cost: {{ad.cost}}</label></div>
+        <div><label>Size: {{ad.size}}</label></div> 
+        <div><label>Status: {{ ad.status }}></label></div>
+        <blockquote>Description: {{ ad.description }}</blockquote>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+
+    <div id="unpaid-page" class="page">
+      {% for ad in unpaid %}
+        <div>
+        <label>Date ordered: {{ad.date.strftime('%m/%d/%Y - %H:%M')}}</label>
+          <div><label>Cost: {{ad.cost}}</label></div>
+          <div><label>Size: {{ad.size}}</label></div> 
+          <div><label>Issues: {{ad.issues}}</label></div> 
+          <blockquote>Description: {{ ad.description }}</blockquote>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div id="companies-page" class="page">
+      {% for company in companies %}
+        <div>
+          <form action="/company_profile" method="post">
+            <div>Company Name: <input name="company_name" type="submit" value="{{company.company_name}}"></div>
+            <ul>
+              <div name="address"><label>Address: {{company.address}}</label></div>
+              <blockquote name="notes">Notes: {{ company.notes }}</blockquote>
+            </ul>
+          </form> 
+        </div>
+      {% endfor %}
+    </div>
+    </div>
+    <hr> 
+      <a type="button" class="btn btn-default" href="{{ url|safe }}" value="{{url}}">Logout</a> 
+
+  </body>
+</html>
+{% endautoescape %}

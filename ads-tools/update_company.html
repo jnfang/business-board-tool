@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+ <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+  <body class="container">
+    <hr>
+    <h2>Update Company Info</h2>
+    <div><label>Contact Info</label></div>
+    <form action="/update_company" method="post">
+    <div><label>Company</label><input value="{{ company.company_name }}" name="company"></div>
+    <div><label>Name</label><input value="{{ contact.name }}" name="name"></div>
+    <div><label>Position</label><input value="{{ contact.position }}" name="position"></div>
+    <div><label>Phone Number</label><input value="{{ contact.phonenumber }}" name="phonenumber"></div>
+    <div><label>Email</label><input value="{{ contact.email }}" name="email"></div>
+    <div><label>Address</label><input value="{{ company.address }}" name="address"></div>
+    <div>Notes:<textarea name="notes" rows="3" cols="60" value="{{ company.notes}}"></textarea></div>
+      <div><input type="submit" value="Submit"></div>
+    </form>
+
+    <hr>
+
+    <a type="button" class="btn btn-default" href="/main">Back</a>
+
+
+  </body>
+</html>
+{% endautoescape %}

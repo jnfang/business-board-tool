@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+ <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+  <body class="container">
+  <h1>{{company_name}} Profile</h1>
+  <div>
+    <h2>Contact Info:</h2>
+    <div>Name: {{contact.name}}</div>
+    <div>Position: {{contact.position}}</div>
+    <div>Phone Number: {{contact.phonenumber}}</div>
+    <div>Email: {{contact.email}}</div>
+    <div>Address: {{company.email}}</div>
+    <div><blockquote>Notes: {{notes}}</blockquote></div>
+    <form action="/update_company" method="post">
+      <input class="btn btn-default" name="company_name" type="submit" value="{{company_name}}">Edit {{company_name}}</a>
+    </form>
+  </div>
+
+  <h2>Order history:</h2>
+  {% for ad in ads %}
+    <div>
+    <label>Date ordered: {{ad.date.strftime('%m/%d/%Y - %H:%M')}}</label>
+    <ul>
+      <div><label>Cost: {{ad.cost}}</label></div>
+      <div><label>Size: {{ad.size}}</label></td>
+      <div><label>Issues: {{ad.issues}}</label></div>
+      <div><label>Status: {{ad.status}}</label></div>
+      <div>Image: <img src="{{ad.pic_url}}"></div>
+      <blockquote>Description: {{ ad.description }}</blockquote>
+    </ul>
+    </div>
+    <hr>
+    {% endfor %}
+    
+      <a type="button" class="btn btn-default" href="/contact">Update Contact Info</a>
+      <a type="button" class="btn btn-default"> href="/order">Buy Ad</a>
+      <a type="button" class="btn btn-default"> href="/info">Preview Sizes</a>  
+      <a type="button" class="btn btn-default"> href="{{ url|safe }}">Logout</a>      
+  </body>
+</html>
+{% endautoescape %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+ <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+  <body class="container">
+    <h1>Advertisement Contract</h1>
+    <hr>
+    <form action="/order" enctype="multipart/form-data" method="post">
+      <div>Size:
+        <select name="size">
+          <option value="Quarter page">1/4 page</option>
+          <option value="Third page">1/3 page</option>
+          <option value="Half page">1/2 page</option>
+          <option value="Two-thirds page">2/3 page</option>
+          <option value="Full page">Full page</option>
+          <option value="Center spread">Center spread</option>
+      </select>
+      </div>
+      <div>Cost:<input name="cost"></input></div>
+      <div>Issues:
+        {% for val in issues %}
+            <input type="checkbox" name="issues" value="{{ val }}" />
+        {% endfor %}
+      </div>
+
+    <div><label>Ad image:</label><input type="file" name="img"/></div>
+    <div>Description:<textarea name="description" rows="3" cols="60"></textarea></div>
+    <div>
+      <div>Signature: Please type {{ name }} below to confirm you have read the Terms and Conditions</div>
+      <input name="signature"></input>
+    </div>
+      <div>
+        Signed in on behalf of {{ company_name }}
+      </div>
+      <div><input type="submit" value="Buy Ad"></div>
+    </form>
+
+    <a type="button" class="btn btn-default" href="/main">Back</a>
+
+
+  </body>
+</html>
+{% endautoescape %}
