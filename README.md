@@ -22,8 +22,11 @@ Functionality
 Instructions
 ======
 This is dependent on Google App Engine and Google Cloud Storage. Unzip file then:
-### Run locally
+### Run locally - functional version
  ./dev_appserver.py ads-tools/
+
+### Run development with sign in/login 
+./dev_appserver.py webapp2-user-accounts/ 
 
 
 Demo
